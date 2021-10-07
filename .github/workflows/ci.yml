@@ -22,8 +22,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # 10.16.0, 10.x, 12.x, 14.x, 
-        node-version: [16.x]
+        node-version: [10.16.0, 10.x, 12.x, 14.x, 16.x]
+        mysql-version: [5.7]
 
     # services:
     #   mariadb:
@@ -46,10 +46,10 @@ jobs:
           node-version:  ${{ matrix.node-version }}
       - name: Set up MySQL
         uses: mirromutth/mysql-action@v1.1
-        with:
+        with: 
           mysql root password: test
       - run: npm install
       - name: Wait mysql server is ready
         run: node wait-mysql-up.js
       - run: node setup.js
-      - run: node benchmark.js
+      - run: node benchmark-select-1000.js
