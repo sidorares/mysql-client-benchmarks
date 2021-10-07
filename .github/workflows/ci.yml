@@ -31,7 +31,7 @@ jobs:
         with:
           node-version:  ${{ matrix.node-version }}
       - name: Set up MySQL
-        uses: uses: shogo82148/actions-setup-mysql@v1
+        uses: shogo82148/actions-setup-mysql@v1
         with: 
           mysql-version: ${{ matrix.mysql-version }} 
           root-password: test
