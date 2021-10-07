@@ -52,4 +52,4 @@ jobs:
       - name: Wait mysql server is ready
         run: node wait-mysql-up.js
       - run: node setup.js
-      - run: mode benchmark.js
+      - run: node benchmark.js
