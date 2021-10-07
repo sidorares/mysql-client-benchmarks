@@ -23,31 +23,18 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [10.16.0, 10.x, 12.x, 14.x, 16.x]
-        mysql-version: [5.7]
+        mysql-version: [mysql:5.7, mysql:8.0, mariadb:10.6]
 
-    # services:
-    #   mariadb:
-    #     image: mariadb:latest
-    #     ports:
-    #       - 3306
-    #     env:
-    #       MYSQL_USER: user
-    #       MYSQL_PASSWORD: password
-    #       MYSQL_DATABASE: test
-    #       MYSQL_ROOT_PASSWORD: password
-    #     options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.4.1
         with:
           node-version:  ${{ matrix.node-version }}
       - name: Set up MySQL
-        uses: mirromutth/mysql-action@v1.1
+        uses: uses: shogo82148/actions-setup-mysql@v1
         with: 
-          mysql root password: test
+          mysql-version: ${{ matrix.mysql-version }} 
+          root-password: test
       - run: npm install
       - name: Wait mysql server is ready
         run: node wait-mysql-up.js
