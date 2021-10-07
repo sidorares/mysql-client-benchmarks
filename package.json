@@ -1,0 +1,24 @@
+{
+  "name": "mysql-client-benchmarks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidorares/mysql-client-benchmarks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidorares/mysql-client-benchmarks/issues"
+  },
+  "homepage": "https://github.com/sidorares/mysql-client-benchmarks#readme",
+  "dependencies": {
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}
