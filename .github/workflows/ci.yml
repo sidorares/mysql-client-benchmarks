@@ -49,5 +49,7 @@ jobs:
         with:
           mysql root password: test
       - run: npm install
+      - name: Wait mysql server is ready
+        run: node wait-mysql-up.js
       - run: node setup.js
       - run: mode benchmark.js
